@@ -14,7 +14,7 @@ def homepage():
 
         usuario=usuario=Usuario.query.filter_by(email=formlogin.email.data).first()
         if usuario:
-            bcrypt.check_password_hash(usuario.senha.encode('utf-8'),formlogin.senha.data)
+            bcrypt.check_password_hash(usuario.senha.encode("utf-8"),formlogin.senha.data)
             login_user(usuario)
             return redirect(url_for("perfil", id_usuario=usuario.id))
 
